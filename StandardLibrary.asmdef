@@ -1,0 +1,22 @@
+{
+    "name": "StandardLibrary",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1ee80374313514841949688e977fd957",
+        "GUID:49b49c76ee64f6b41bf28ef951cb0e50",
+        "GUID:e6234d6c1f7bf4e4db20eddc411c00b8",
+        "GUID:d0a204fb2c62e9f4caca92f1c1e8c06b",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:fe685ec1767f73d42b749ea8045bfe43",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
