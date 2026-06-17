@@ -1,0 +1,12 @@
+{
+  "name": "com.lganson.pbs-lab-vr-standard-lib",
+  "version": "1.0.0",
+  "displayName": "PBS VR Standard Lib",
+  "description": "Collection of tools to create and manage experiments for the lab.",
+  "unity": "6000.0",
+  "author": {
+    "name": "Liam Anson",
+    "email": "liam-anson@uiowa.edu",
+    "url": "https://github.com/lganson/pbs-vision-lab-vr-standard-lib"
+  }
+}
