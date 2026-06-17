@@ -9,4 +9,10 @@
     "email": "liam-anson@uiowa.edu",
     "url": "https://github.com/lganson/pbs-vision-lab-vr-standard-lib"
   }
+"dependencies": {
+    "com.unity.inputsystem": "1.7.0",
+    "com.unity.xr.interaction.toolkit": "2.5.2",
+    "com.htc.upm.vive.openxr": "2.5.1",
+    "com.unity.nuget.newtonsoft-json" : "3.2.2"
+  }
 }
