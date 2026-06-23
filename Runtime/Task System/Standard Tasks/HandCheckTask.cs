@@ -74,15 +74,15 @@ namespace Standard_Library
         {
             if (requirePolesToBeTouched)
             {
-                Debug.Log("Checking hands");
+                //Debug.Log("Checking hands");
                 //Check if both poles are touched, return if not.
                 if (!leftHandValid || !rightHandValid)
                 {
-                    Debug.Log("Hand check failed");
+                    //Debug.Log("Hand check failed");
                     return;
                 }
             }
-            Debug.Log("Hand check passed");
+            //Debug.Log("Hand check passed");
             InputManager.OnBothTriggersPressed.RemoveListener(ValidateHandCheck);
             onTaskComplete?.Invoke();
         }

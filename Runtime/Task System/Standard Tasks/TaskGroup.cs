@@ -8,7 +8,10 @@ namespace Standard_Library
     [Serializable]
     public class TaskGroup : Task
     {
-        [Header("Task Group Config")]
+        [Header("Task Group Config")] 
+        [SerializeField] private bool counterbalanceByParticipantNumber;
+        [SerializeField, Tooltip("X is the additive offset from participant #, Y is the Multiplicative offset, Z is the modulo ex: to get 4 alternating things you should multiply by 3 and mod by 4")] 
+        private Vector3 counterbalanceOffset;
         [SerializeReference, SubclassSelector] private List<Task> taskOptions;
         [SerializeField] private TaskGroupType taskGroupType;
         [SerializeField] private int repetitions = 1;
@@ -20,12 +23,24 @@ namespace Standard_Library
             if(running) return;
             if (taskGroupType == TaskGroupType.Blocked) //sort tasks into blocks
             {
-                foreach (var task in taskOptions)
+                int num = 0;
+                int offset = DataTracker.GetInstance().GetParticipantNumber();
+                offset += (int)counterbalanceOffset.x;
+                offset = (int)(offset * counterbalanceOffset.y);
+                offset %= (int)counterbalanceOffset.z;
+                while (num < taskOptions.Count)
                 {
+                    int taskIndex = num;
+                    if (counterbalanceByParticipantNumber)
+                    {
+                        taskIndex = (offset + num)%taskOptions.Count;
+                    }
+                    Task task = taskOptions[taskIndex];
                     for (int i = 0; i < repetitions; i++)
                     {
                         tasks.Add(task);
                     }
+                    num++;
                 }
             }
             else

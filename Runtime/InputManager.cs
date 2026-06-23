@@ -122,7 +122,7 @@ namespace Standard_Library
             InputDevices.GetDevices(devices);
             foreach (var device in devices)
             {
-                Debug.Log(device.name + " " + device.characteristics);
+                //Debug.Log(device.name + " " + device.characteristics);
 
                 if ((device.characteristics & InputDeviceCharacteristics.HeadMounted) != 0)
                     headsetDevice = device;
@@ -142,7 +142,7 @@ namespace Standard_Library
         {
             while (!DevicesConnected())
             {
-                Debug.Log("Devices not connected. Waiting for connection");
+                Debug.LogWarning("Devices not connected. Waiting for connection");
             } 
             return new InputDeviceCollection(headsetDevice, leftController, rightController);
         }
@@ -184,7 +184,7 @@ namespace Standard_Library
 
         private void DisableControllers()
         {
-            Debug.Log("DisableControllers");
+            //Debug.Log("DisableControllers");
             foreach (var device in InputSystem.devices)
             {
                 if (device is XRController)
@@ -196,8 +196,7 @@ namespace Standard_Library
 
         private void EnableControllers()
         {
-            Debug.Log("EnableControllers");
-
+            //Debug.Log("EnableControllers");
             foreach (var device in InputSystem.devices)
             {
                 if (device is XRController)
