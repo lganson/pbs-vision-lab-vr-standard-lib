@@ -63,6 +63,8 @@ public class EyeTrackingManager : Singleton<EyeTrackingManager>
             {
                 Debug.LogWarning("XR Origin not found in scene. Either add an origin or disable eye tracking.");
             }
+
+            return;
         }
         XRSingleEyeData leftEyeData = new XRSingleEyeData();
         XRSingleEyeData rightEyeData = new XRSingleEyeData();
