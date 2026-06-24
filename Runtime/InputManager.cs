@@ -25,6 +25,7 @@ namespace Standard_Library
         private bool searchingForDevices;
         [SerializeField] private float timeBetweenDeviceChecks = 0.5f;
         public static readonly UnityEvent OnBothTriggersPressed = new UnityEvent();
+        public static readonly UnityEvent OnEitherTriggerPressed = new UnityEvent();
         [SerializeField] private float pressWindow = 0.5f;
         private float leftPressTime = -1f;
         private float rightPressTime = -1f;
@@ -155,6 +156,7 @@ namespace Standard_Library
         private void OnRightTriggerPressed(InputAction.CallbackContext obj) => OnTriggerPressed(false);
         private void OnTriggerPressed(bool left)
         {
+            OnEitherTriggerPressed?.Invoke();
             switch (left)
             {
                 case true:
