@@ -19,8 +19,11 @@ namespace Standard_Library
         [SerializeField] private TaskSequencer taskSequencer;
         public static readonly UnityEvent OnSequenceReset = new UnityEvent();
         public static readonly UnityEvent<TaskSequence> OnSequenceChange = new UnityEvent<TaskSequence>();
-        
-        
+
+        private void Start()
+        {
+            EyeTrackingManager.GetInstance().SetEyeTrackingEnabled(false);
+        }
         private void ReloadStartScene()
         {
             Debug.Log("Reloading start scene");
@@ -35,6 +38,7 @@ namespace Standard_Library
             if (taskSequencer.GetActiveSequence() == null) return;
             taskSequencer.onTasksCompleted.AddOnce(ReloadStartScene);
             InputManager.EnableController?.Invoke(true);
+            EyeTrackingManager.GetInstance().SetEyeTrackingEnabled(true);
             StartCoroutine(taskSequencer.StartSequence());   
         }
 
