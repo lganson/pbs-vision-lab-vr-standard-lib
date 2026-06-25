@@ -66,6 +66,8 @@ namespace Standard_Library
             leftTriggerPressed.performed -= OnLeftTriggerPressed;
             rightTriggerPressed.performed -= OnRightTriggerPressed;
             EnableController.RemoveListener(OnEnableControllers);
+            OnBothTriggersPressed.RemoveAllListeners();
+            OnEitherTriggerPressed.RemoveAllListeners();
         }
     
         public InputAction GetAction(string actionName)
