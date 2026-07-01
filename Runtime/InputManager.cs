@@ -25,11 +25,12 @@ namespace Standard_Library
         private bool searchingForDevices;
         [SerializeField] private float timeBetweenDeviceChecks = 0.5f;
         public static readonly UnityEvent OnBothTriggersPressed = new UnityEvent();
-        public static readonly UnityEvent OnEitherTriggerPressed = new UnityEvent();
+        public static readonly UnityEvent<bool> OnEitherTriggerPressed = new UnityEvent<bool>();
         [SerializeField] private float pressWindow = 0.5f;
+        [SerializeField] private float eitherTriggerPressBlocker = 0.1f;
         private float leftPressTime = -1f;
         private float rightPressTime = -1f;
-        
+        private float eitherTriggerPressTime = -1f;
         public static readonly UnityEvent<bool> EnableController = new UnityEvent<bool>();
         public override void Awake()
         {
@@ -120,12 +121,13 @@ namespace Standard_Library
         {
             searchingForDevices = true;
             yield return new WaitForSeconds(delayTime);
-
+            //Debug.Log("Searching for devices");
             List<InputDevice> devices = new List<InputDevice>();
             InputDevices.GetDevices(devices);
+            //Debug.Log("Found " + devices.Count + " devices");
             foreach (var device in devices)
             {
-                //Debug.Log(device.name + " " + device.characteristics);
+                Debug.Log(device.name + " " + device.characteristics);
 
                 if ((device.characteristics & InputDeviceCharacteristics.HeadMounted) != 0)
                     headsetDevice = device;
@@ -158,7 +160,15 @@ namespace Standard_Library
         private void OnRightTriggerPressed(InputAction.CallbackContext obj) => OnTriggerPressed(false);
         private void OnTriggerPressed(bool left)
         {
-            OnEitherTriggerPressed?.Invoke();
+            eitherTriggerPressTime = Time.time;
+            if (eitherTriggerPressTime > 0 && Time.time - eitherTriggerPressTime > eitherTriggerPressBlocker)
+            {
+                eitherTriggerPressBlocker = -1f;
+            }
+            else
+            {
+                OnEitherTriggerPressed?.Invoke(left);
+            }
             switch (left)
             {
                 case true:
@@ -179,7 +189,6 @@ namespace Standard_Library
             {
                 leftPressTime = -1f;
             }
-
             if (rightPressTime > 0f && Time.time - rightPressTime > pressWindow)
             {
                 rightPressTime = -1f;
@@ -200,7 +209,7 @@ namespace Standard_Library
 
         private void EnableControllers()
         {
-            //Debug.Log("EnableControllers");
+            Debug.Log("EnableControllers");
             foreach (var device in InputSystem.devices)
             {
                 if (device is XRController)
