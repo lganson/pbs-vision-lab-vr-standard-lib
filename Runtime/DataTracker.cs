@@ -13,6 +13,7 @@ namespace Standard_Library
         private bool eyeLoggingEnabled;
         private string folder;
         private List<DataSerializer> data = new List<DataSerializer>();
+        private DataSerializer _timeSeriesData = new DataSerializer();
         private readonly GenericTrialData genericTrialData = new GenericTrialData();
         private readonly EyeTrackingData eyeData = new EyeTrackingData();
         public void Start()

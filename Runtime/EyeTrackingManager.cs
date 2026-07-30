@@ -2,6 +2,7 @@ using System;
 using Standard_Library;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using VIVE.OpenXR;
 using VIVE.OpenXR.EyeTracker;
 
@@ -26,6 +27,8 @@ public class EyeTrackingManager : Singleton<EyeTrackingManager>
     private Quaternion _leftOffset = Quaternion.identity;
     private Quaternion _rightOffset = Quaternion.identity;
     
+    private Camera  _mainCamera;
+    
     public static readonly UnityEvent<EyeData> OnEyesUpdated =  new UnityEvent<EyeData>();
     
     public void Start()
@@ -35,17 +38,27 @@ public class EyeTrackingManager : Singleton<EyeTrackingManager>
             GameObject xrRigObj = GameObject.Find("XR Origin");
             if (xrRigObj != null) _originXRRig = xrRigObj.transform;
         }
+
+        _mainCamera = Camera.main;
         // OnEyesUpdated.AddListener((ctx) => {CalculateEyeTargetPosition(ctx.leftEyeData, ref _leftEyeTargetPosition);});
         // OnEyesUpdated.AddListener((ctx) => {CalculateEyeTargetPosition(ctx.rightEyeData, ref _rightEyeTargetPosition);});
         if (!updateEachFrame)
         {
             InvokeRepeating(nameof(UpdateEyeData), 1/pollRateInHz, 1/pollRateInHz);
         }
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene arg0, LoadSceneMode loadSceneMode)
+    {
+        _mainCamera = Camera.main;
     }
 
     public void OnDestroy()
     {
         if(this == GetInstanceNoSpawn()) OnEyesUpdated.RemoveAllListeners();
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     private void Update()
     {
@@ -98,6 +111,8 @@ public class EyeTrackingManager : Singleton<EyeTrackingManager>
         
         leftEyeData.targetWorldPosition = _leftEyeTargetPosition;
         rightEyeData.targetWorldPosition = _rightEyeTargetPosition;
+        leftEyeData.screenSpaceGazePosition = GetScreenSpaceGaze(leftEyeData.gazeData.gazePose.orientation.ToUnityQuaternion(), new Vector2(0.7f, 0.5f));
+        rightEyeData.screenSpaceGazePosition = GetScreenSpaceGaze(rightEyeData.gazeData.gazePose.orientation.ToUnityQuaternion(), new Vector2(0.3f, 0.5f));
         leftEyeData.time = Time.time;
         rightEyeData.time = Time.time;
         EyeData eyeData = new EyeData
@@ -141,11 +156,29 @@ public class EyeTrackingManager : Singleton<EyeTrackingManager>
         return worldTarget;
     }
     
+    private Vector2 GetScreenSpaceGaze(Quaternion eyeOrientation, Vector2 uvCenter)
+    {
+        eyeOrientation = Quaternion.Inverse(_mainCamera.transform.rotation) * eyeOrientation;
+        Vector3 trackingForward = eyeOrientation * Vector3.forward;
+        float xProjected = trackingForward.x / trackingForward.z;
+        float yProjected = trackingForward.y / trackingForward.z;
+
+        float xDirection = xProjected;
+        float yDirection = yProjected;
+
+        float u = uvCenter.x + (xDirection * 0.45f);
+        float v = uvCenter.y + (yDirection * 0.45f);
+
+        return new Vector2(Mathf.Clamp01(u), Mathf.Clamp01(v));
+    }
+    
+    
     [Serializable]
     public struct XRSingleEyeData
     {
         public float time;
         public Vector3 targetWorldPosition; //might need to update how this is set but it should be fine for now
+        public Vector2 screenSpaceGazePosition;
         public XrSingleEyeGazeDataHTC gazeData;
         public XrSingleEyeGeometricDataHTC geometricData;
         public XrSingleEyePupilDataHTC pupilData;
@@ -183,6 +216,11 @@ public class EyeTrackingManager : Singleton<EyeTrackingManager>
     {
         _leftOffset = leftEyeOffset;
         _rightOffset = rightEyeOffset;
+    }
+
+    public Vector3 GetCenterTargetPosition()
+    {
+        return (_leftEyeTargetPosition + _rightEyeTargetPosition)/2f;
     }
 }
 

@@ -58,8 +58,9 @@ namespace Standard_Library
         
         public async void StartSequence()
         {
+            Debug.Log("Starting sequence");
             running = true;
-            while(tasks.Count > 0)
+            while(tasks.Count > 0 && !Application.exitCancellationToken.IsCancellationRequested)
             {
                 bool taskCompleted = false;
                 Task task = GetNextTask();
