@@ -57,6 +57,8 @@ namespace Standard_Library
         }
         private void ApplyEvents(XRSimpleInteractable leftPole, XRSimpleInteractable rightPole)
         {
+            leftHandValid = false;
+            rightHandValid = false;
             leftPole.hoverEntered.AddListener(_ => leftHandValid = true);
             leftPole.hoverExited.AddListener(_ => leftHandValid = false);
             rightPole.hoverEntered.AddListener(_ => rightHandValid = true);
