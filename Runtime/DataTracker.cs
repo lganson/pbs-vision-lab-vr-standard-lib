@@ -28,6 +28,10 @@ namespace Standard_Library
             DisableEyeLogging();
             GlobalTaskSequencer.OnSequenceReset.RemoveListener(OnSequenceReset);
             GlobalTaskSequencer.OnSequenceChange.RemoveListener(OnSequenceChange);
+            if (data.Count > 1)
+            {
+                SaveData();
+            }
         }
 
         private void OnSequenceChange(TaskSequence sequence)
