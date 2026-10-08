@@ -14,7 +14,6 @@ The **PBS Vision Lab VR Standard Library** is a core framework and collection of
   - Any parameters that may need to be changed should be added as fields in scriptable objects
 
 ## Key Features 
-- **Core VR Mechanics:** Pre-configured player rigs, locomotion systems, and object interaction scripts optimized for lab hardware.
 - **Precision Data Logging:** Automated, high-frequency tracking of head movements, gaze/eye tracking, hand positions, and interaction events, outputting to researcher-friendly formats (e.g., CSV/JSON).
 - **Stimulus Presentation Tools:** Calibrated tools for precise visual stimulus timing, lighting control, scaling, and manipulation within the virtual environment.
 - **Task System:** Collection of generic tasks and base classes of tasks to allow for creation of experiments by non-technical people within the Unity Engine.
