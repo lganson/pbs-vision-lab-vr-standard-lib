@@ -10,26 +10,29 @@ The **PBS Vision Lab VR Standard Library** is a core framework and collection of
 - **Efficiency:** Abstract complex VR hardware integrations and mechanics so researchers can focus on experimental design rather than low-level programming.
 - **Modularity:** Provide plug-and-play components for data logging, participant tracking, and visual stimuli rendering.
 - **Scalability:** Enable seamless updates and maintenance across multiple ongoing research projects that utilize the same core mechanics.
+- **Data Driven** All experiments should be assembled through a collection of data instead of assembling a scene in engine.
+  - Any parameters that may need to be changed should be added as fields in scriptable objects
 
 ## Key Features 
 - **Core VR Mechanics:** Pre-configured player rigs, locomotion systems, and object interaction scripts optimized for lab hardware.
 - **Precision Data Logging:** Automated, high-frequency tracking of head movements, gaze/eye tracking, hand positions, and interaction events, outputting to researcher-friendly formats (e.g., CSV/JSON).
 - **Stimulus Presentation Tools:** Calibrated tools for precise visual stimulus timing, lighting control, scaling, and manipulation within the virtual environment.
-- **Task System:** Collection of generic tasks and base classes of tasks to allow for creation of experiments by non technical people within the Unity Engine.
-  - Uses an existing repo https://github.com/mackysoft/Unity-SerializeReferenceExtensions to serialize a variety of task sequences.
-  - Reorganize the order of experiments on the fly or change the configuration of pre-made blocks to fine tune experiments with feedback from the creator of experiments
-  - Nest groups of tasks to create any collection of random or in order sequences
-- **Input System:** Centralize the unity input system to make hooking into complex unity events significantly easier
-  - Built in events for reused input schemes like pulling both triggers (with timing allowance)
-  - Support for eye tracking event hooks
-  - Collect input device data such as head and hand positions
-  
-  
+- **Task System:** Collection of generic tasks and base classes of tasks to allow for creation of experiments by non-technical people within the Unity Engine.
+  - Uses an existing repo, [Unity-SerializeReferenceExtensions](https://github.com/mackysoft/Unity-SerializeReferenceExtensions), to serialize a variety of task sequences.
+  - Reorganize the order of experiments on the fly or change the configuration of pre-made blocks to fine-tune experiments with feedback from the creator of experiments.
+  - Nest groups of tasks to create any collection of random or in-order sequences.
+  - Easily extensible by creating a new class that inherits from the Task or Block Runner classes.
+  - <img width="1056" height="718" alt="image" src="https://github.com/user-attachments/assets/8a44fdc9-0689-4dec-b2f0-3a3239a3c9d9" />
 
+- **Input System:** Centralize the Unity input system to make hooking into complex Unity events significantly easier.
+  - Built-in events for reused input schemes like pulling both triggers (with timing allowance).
+  - Support for eye tracking event hooks.
+  - Collect input device data such as head and hand positions.
+  
 ## Tech Stack
-- **Engine:** Unity / Unreal Engine *(update based on your exact engine)*
-- **Languages:** C# / C++
-- **SDKs Frameworks:** OpenXR, SteamVR, or Meta XR SDK *(update as needed)*
+- **Engine:** Unity
+- **Languages:** C# 
+- **SDKs & Frameworks:** OpenXR, SteamVR
 - **Version Control:** Git & GitHub
 
 ---
