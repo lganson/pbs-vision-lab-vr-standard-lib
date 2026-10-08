@@ -1,0 +1,36 @@
+# PBS Vision Lab VR Standard Library
+
+**Repository:** [pbs-vision-lab-vr-standard-lib](https://github.com/lganson/pbs-vision-lab-vr-standard-lib)
+
+## Project Overview
+The **PBS Vision Lab VR Standard Library** is a core framework and collection of reusable tools designed to standardize and streamline Virtual Reality (VR) experiment development for the Psychological and Brain Sciences (PBS) Vision Lab. By providing a unified architecture, this library reduces boilerplate code, ensures consistency across research experiments, and accelerates the deployment of new VR environments.
+
+## Purpose & Goals
+- **Standardization:** Establish a consistent codebase and design pattern for all VR-based vision and perception experiments.
+- **Efficiency:** Abstract complex VR hardware integrations and mechanics so researchers can focus on experimental design rather than low-level programming.
+- **Modularity:** Provide plug-and-play components for data logging, participant tracking, and visual stimuli rendering.
+- **Scalability:** Enable seamless updates and maintenance across multiple ongoing research projects that utilize the same core mechanics.
+
+## Key Features 
+- **Core VR Mechanics:** Pre-configured player rigs, locomotion systems, and object interaction scripts optimized for lab hardware.
+- **Precision Data Logging:** Automated, high-frequency tracking of head movements, gaze/eye tracking, hand positions, and interaction events, outputting to researcher-friendly formats (e.g., CSV/JSON).
+- **Stimulus Presentation Tools:** Calibrated tools for precise visual stimulus timing, lighting control, scaling, and manipulation within the virtual environment.
+- **Task System:** Collection of generic tasks and base classes of tasks to allow for creation of experiments by non technical people within the Unity Engine.
+  -- Uses an existing repo https://github.com/mackysoft/Unity-SerializeReferenceExtensions to serialize a variety of task sequences.
+  -- Reorganize the order of experiments on the fly or change the configuration of pre-made blocks to fine tune experiments with feedback from the creator of experiments
+  -- Nest groups of tasks to create any collection of random or in order sequences
+- **Input System:** Centralize the unity input system to make hooking into complex unity events significantly easier
+  -- Built in events for reused input schemes like pulling both triggers (with timing allowance)
+  -- Support for eye tracking event hooks
+  -- Collect input device data such as head and hand positions
+  
+  
+
+## Tech Stack
+- **Engine:** Unity / Unreal Engine *(update based on your exact engine)*
+- **Languages:** C# / C++
+- **SDKs Frameworks:** OpenXR, SteamVR, or Meta XR SDK *(update as needed)*
+- **Version Control:** Git & GitHub
+
+---
+*Developed for the PBS Vision Lab.*
