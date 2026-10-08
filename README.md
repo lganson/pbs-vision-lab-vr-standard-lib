@@ -1,5 +1,6 @@
 # PBS Vision Lab VR Standard Library
-
+*Developed for the PBS Vision Lab. By Liam Anson*
+---
 **Repository:** [pbs-vision-lab-vr-standard-lib](https://github.com/lganson/pbs-vision-lab-vr-standard-lib)
 
 ## Project Overview
@@ -32,8 +33,7 @@ The **PBS Vision Lab VR Standard Library** is a core framework and collection of
 - **Languages:** C# 
 - **SDKs & Frameworks:** OpenXR, SteamVR
 - **Version Control:** Git & GitHub
----
-*Developed for the PBS Vision Lab. By Liam Anson*
+
 
 
 
