@@ -12,6 +12,7 @@ namespace Standard_Library
         [SerializeField] private string project;
         private bool eyeLoggingEnabled;
         private string folder;
+        private string filePrefix;
         private List<DataSerializer> data = new List<DataSerializer>();
         private DataSerializer _timeSeriesData = new DataSerializer();
         private readonly GenericTrialData genericTrialData = new GenericTrialData();
@@ -28,11 +29,16 @@ namespace Standard_Library
             DisableEyeLogging();
             GlobalTaskSequencer.OnSequenceReset.RemoveListener(OnSequenceReset);
             GlobalTaskSequencer.OnSequenceChange.RemoveListener(OnSequenceChange);
+            if (data.Count > 1)
+            {
+                SaveData();
+            }
         }
 
         private void OnSequenceChange(TaskSequence sequence)
         {
-            folder = sequence.GetLogPath();
+            folder = sequence.logFilePath;
+            filePrefix = sequence.filePrefix;
             DisableEyeLogging();
         }
         private void OnSequenceReset()
@@ -67,7 +73,7 @@ namespace Standard_Library
 
         private void SaveData()
         {
-            SaveManager.Save(data, project, folder,participantNumber + "_saveData");
+            SaveManager.Save(data, project, folder, filePrefix + "_" + participantNumber + "_saveData");
             if(eyeLoggingEnabled) SaveManager.Save(new List<DataSerializer>(){eyeData}, project, folder,participantNumber + "_eyeData");
             DisableEyeLogging();
         }

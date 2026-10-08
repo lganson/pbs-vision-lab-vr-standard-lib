@@ -15,13 +15,14 @@
     "com.htc.upm.vive.openxr": "2.5.1",
     "com.unity.nuget.newtonsoft-json": "3.2.2"
   },
-"scopedRegistries": [
-  {
-    "name": "HTC",
-    "url": "https://npm-registry.vive.com",
-    "scopes": [
-      "com.htc.upm"
-    ]
-  }
-]
+  "scopedRegistries": [
+    {
+      "name": "HTC",
+      "url": "https://npm-registry.vive.com",
+      "scopes": [
+        "com.htc.upm"
+      ]
+    }
+  ],
+  "_fingerprint": "fef9b7d07ab2ab783aff9feb34a2f054d0d0d008"
 }

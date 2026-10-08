@@ -8,6 +8,7 @@ namespace Standard_Library
     {
         [field:SerializeField] public bool editorOnly { get; private set;}
         [field: SerializeField] public string sequenceName {get; private set;}
+        [field:SerializeField] public string filePrefix {get; private set;}
         [field:SerializeField] public string logFilePath {get; private set;}
         [field: SerializeField] public bool logEyeTracking {get; private set;}
         [field:SerializeReference, SubclassSelector] public List<Task> tasks { get; private set;}
