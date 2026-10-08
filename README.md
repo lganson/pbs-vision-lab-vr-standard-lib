@@ -81,7 +81,7 @@ The **PBS Vision Lab VR Standard Library** is a core framework and collection of
   - This scotoma is implemented via a screen-space shader that is shifted and rotated on each eye's screen to create binocular fusion in the user's central vision.
   - The end effect is a black dot (or any customizable texture) that perfectly tracks the user's focus in real-time.
 #### Scotoma Example, WARNING!: The GIF is significantly more lo-fi than the actual experiment and the scotoma looks more like the image below
-<img width="1396" height="810" alt="Scotoma GIF" src="https://github.com/user-attachments/assets/ed84f6bf-6cb7-4b81-97e2-64540a133e1d" />
+<img width="1414" height="790" alt="Scotoma GIF" src="https://github.com/user-attachments/assets/80b76b54-3f47-4647-843e-eb2f342e21f5" />
 
 ### Save System Usage
 - The save system is used to capture all of the data in the experiment in JSON format.
