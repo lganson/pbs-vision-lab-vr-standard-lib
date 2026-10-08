@@ -21,7 +21,8 @@ The **PBS Vision Lab VR Standard Library** is a core framework and collection of
   - Reorganize the order of experiments on the fly or change the configuration of pre-made blocks to fine-tune experiments with feedback from the creator of experiments.
   - Nest groups of tasks to create any collection of random or in-order sequences.
   - Easily extensible by creating a new class that inherits from the Task or Block Runner classes.
-  - <img width="1056" height="718" alt="image" src="https://github.com/user-attachments/assets/8a44fdc9-0689-4dec-b2f0-3a3239a3c9d9" />
+    
+  - **Example**<img width="1056" height="718" alt="image" src="https://github.com/user-attachments/assets/8a44fdc9-0689-4dec-b2f0-3a3239a3c9d9" />
 
 - **Input System:** Centralize the Unity input system to make hooking into complex Unity events significantly easier.
   - Built-in events for reused input schemes like pulling both triggers (with timing allowance).
@@ -33,6 +34,18 @@ The **PBS Vision Lab VR Standard Library** is a core framework and collection of
 - **Languages:** C# 
 - **SDKs & Frameworks:** OpenXR, SteamVR
 - **Version Control:** Git & GitHub
-
 ---
 *Developed for the PBS Vision Lab.*
+
+
+
+
+
+
+## Sample Project
+---
+# Immersive Visual Search (IS01)
+Uses all parts of pbs-vision-lab-standard-lib
+** Task System **
+
+
