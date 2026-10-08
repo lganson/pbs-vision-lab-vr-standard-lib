@@ -4,18 +4,18 @@
 **Repository:** [pbs-vision-lab-vr-standard-lib](https://github.com/lganson/pbs-vision-lab-vr-standard-lib)
 
 ## Project Overview
-The **PBS Vision Lab VR Standard Library** is a core framework and collection of reusable tools designed to standardize and streamline Virtual Reality (VR) experiment development for the University of Iowa Psychological and Brain Sciences (PBS) Vision Lab. By providing a unified architecture, this library reduces boilerplate code, ensures consistency across research experiments, and accelerates the deployment of new VR environments.
+The **PBS Vision Lab VR Standard Library** is a collection of reusable tools designed to standardize and streamline Virtual Reality (VR) experiment development for the University of Iowa Psychological and Brain Sciences (PBS) Vision Lab. By providing a set of building blocks, this library ensures consistency across research experiments, and accelerates the development of new VR environments.
 
 ## Purpose & Goals
 - **Standardization:** Establish a consistent codebase and design pattern for all VR-based vision and perception experiments.
-- **Efficiency:** Abstract complex VR hardware integrations and mechanics so researchers can focus on experimental design rather than low-level programming.
+- **Efficiency:** Abstract complex VR hardware integrations and mechanics so researchers can focus on experimental design rather than programming.
 - **Modularity:** Provide plug-and-play components for data logging, participant tracking, and visual stimuli rendering.
 - **Scalability:** Enable seamless updates and maintenance across multiple ongoing research projects that utilize the same core mechanics.
 - **Data-Driven:** All experiments should be assembled through a collection of data instead of assembling a scene in-engine.
   - Any parameters that may need to be changed should be added as fields in `TaskSequence` `ScriptableObject`s
 
 ## Key Features 
-- **Data Logging:** Automated, high-frequency tracking of head movements, gaze/eye tracking, hand positions, and interaction events, outputting to researcher-friendly formats (e.g., CSV/JSON).
+- **Data Logging:** Automated tracking of head movements, gaze/eye tracking, hand positions, and interaction events, outputting to friendly formats (e.g., CSV/JSON).
   - Defining new data formats is as simple as creating a new class that extends from `BlockData` and making fields public AND serializable. (If a variable is not natively serializable by `Newtonsoft` or Unity, it is possible to create your own serialization, but it is more involved).
 - **Task System:** Collection of generic tasks and base classes of tasks to allow for the creation of experiments by non-technical people within the Unity Engine.
   - Uses an existing repo, [Unity-SerializeReferenceExtensions](https://github.com/mackysoft/Unity-SerializeReferenceExtensions), to serialize a variety of task sequences.
