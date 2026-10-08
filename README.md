@@ -1,7 +1,6 @@
 # PBS Vision Lab VR Standard Library
 ---
-*Developed for the PBS Vision Lab. By Liam Anson*
----
+*Developed for the PBS Vision Lab.*
 **Repository:** [pbs-vision-lab-vr-standard-lib](https://github.com/lganson/pbs-vision-lab-vr-standard-lib)
 
 ## Project Overview
@@ -46,6 +45,9 @@ The **PBS Vision Lab VR Standard Library** is a core framework and collection of
 ## Immersive Visual Search (IS01)
 
 ### Task System Usage
+<img width="1047" height="507" alt="image" src="https://github.com/user-attachments/assets/25988ac2-88bd-4d69-9c6e-d54356ad11f0" />
+<img width="1040" height="395" alt="image" src="https://github.com/user-attachments/assets/02a63453-3bde-4e8f-9c06-8c712d98e269" />
+<img width="1040" height="476" alt="image" src="https://github.com/user-attachments/assets/58af86b3-0eba-4ffd-9e67-dd16177ca0e3" />
 
 ### Input System Usage
 
