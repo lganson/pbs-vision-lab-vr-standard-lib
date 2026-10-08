@@ -16,13 +16,13 @@ The **PBS Vision Lab VR Standard Library** is a core framework and collection of
 - **Precision Data Logging:** Automated, high-frequency tracking of head movements, gaze/eye tracking, hand positions, and interaction events, outputting to researcher-friendly formats (e.g., CSV/JSON).
 - **Stimulus Presentation Tools:** Calibrated tools for precise visual stimulus timing, lighting control, scaling, and manipulation within the virtual environment.
 - **Task System:** Collection of generic tasks and base classes of tasks to allow for creation of experiments by non technical people within the Unity Engine.
-  -- Uses an existing repo https://github.com/mackysoft/Unity-SerializeReferenceExtensions to serialize a variety of task sequences.
-  -- Reorganize the order of experiments on the fly or change the configuration of pre-made blocks to fine tune experiments with feedback from the creator of experiments
-  -- Nest groups of tasks to create any collection of random or in order sequences
+  - Uses an existing repo https://github.com/mackysoft/Unity-SerializeReferenceExtensions to serialize a variety of task sequences.
+  - Reorganize the order of experiments on the fly or change the configuration of pre-made blocks to fine tune experiments with feedback from the creator of experiments
+  - Nest groups of tasks to create any collection of random or in order sequences
 - **Input System:** Centralize the unity input system to make hooking into complex unity events significantly easier
-  -- Built in events for reused input schemes like pulling both triggers (with timing allowance)
-  -- Support for eye tracking event hooks
-  -- Collect input device data such as head and hand positions
+  - Built in events for reused input schemes like pulling both triggers (with timing allowance)
+  - Support for eye tracking event hooks
+  - Collect input device data such as head and hand positions
   
   
 
