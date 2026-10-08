@@ -82,7 +82,6 @@ The **PBS Vision Lab VR Standard Library** is a core framework and collection of
   - The end effect is a black dot (or any customizable texture) that perfectly tracks the user's focus in real-time.
 #### Scotoma Example, WARNING!: The GIF is significantly more lo-fi than the actual experiment and the scotoma looks more like the image below
 <img width="1396" height="810" alt="Scotoma GIF" src="https://github.com/user-attachments/assets/ed84f6bf-6cb7-4b81-97e2-64540a133e1d" />
-<img width="2448" height="2448" alt="Scotoma Med" src="https://github.com/user-attachments/assets/d893f0d7-43b0-4b9f-8e30-44cb7863e7f6" />
 
 ### Save System Usage
 - The save system is used to capture all of the data in the experiment in JSON format.
