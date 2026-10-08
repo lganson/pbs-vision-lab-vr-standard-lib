@@ -68,7 +68,7 @@ The **PBS Vision Lab VR Standard Library** is a core framework and collection of
 - This is a single example of how a runner might look in the inspector, but anything is possible as long as the runner can be defined with a single entry and exit point (*entering and exiting the same trial is a little more complex and will require some extra effort*).
 
 <img width="1040" height="395" alt="image" src="https://github.com/user-attachments/assets/02a63453-3bde-4e8f-9c06-8c712d98e269" />  
-<img width="1040" height="476" alt="image" src="https://github.com/user-attachments/assets/58af86b3-0eba-4ffd-9e67-dd16177ca0e3" />
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/58af86b3-0eba-4ffd-9e67-dd16177ca0e3" />
 
 ### Input System Usage
 - The Input System is plug-and-play with whatever `InputActionAsset`s you throw at it, so all that's needed is to subscribe to the correct events.
