@@ -31,7 +31,7 @@ namespace Standard_Library
             else _instance = GetComponent<T>();
             if(defaultDontDestroyOnLoad)  DontDestroyOnLoad(_instance);
         }
-        private void SetDontDestroyOnLoad()
+        public void SetDontDestroyOnLoad()
         {
             DontDestroyOnLoad(_instance);
         }
