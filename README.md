@@ -22,6 +22,7 @@ The **PBS Vision Lab VR Standard Library** is a collection of reusable tools des
   - Reorganize the order of experiments on the fly or change the configuration of pre-made blocks to fine-tune experiments with feedback from the creator of experiments.
   - Nest groups of tasks to create any collection of random or in-order sequences.
   - Easily extensible by creating a new class that inherits from the `Task` or `BlockRunner` classes.
+  - `PersistentObjectPool`s allow for persisting collections of objects between tasks. For example if you have a collection of conditions to be spread out across multiple blocks they can be stored in a `PersistentObjectPool` then pulled later.
   - **Example:**  
     <img width="1056" height="718" alt="image" src="https://github.com/user-attachments/assets/8a44fdc9-0689-4dec-b2f0-3a3239a3c9d9" />
 - **Input System:** Centralize the Unity Input System to make hooking into complex Unity events significantly easier.
